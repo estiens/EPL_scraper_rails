@@ -3,13 +3,15 @@
     <div id="teamcontainer">
         <ol class="teams">
         <% @teams.each do |team| %>
-          <li>
+          <%=link_to(team) do %>
+            <li>
             <div class="teamrecord"><%=team.games_won%> W : <%=team.games_drawn%> D : <%=team.games_lost%> L  </div>
             <% imgpath = "#{team.name.downcase.gsub(" ","-")}.png" %>
             <%= image_tag imgpath, :height => '150' %></a>
             <div class="teamname"><%= team.name %></div>
             <div class="teampoints"><%= team.points %></div>
             </li>
+        <% end %>
         <% end %>
         </ol>
     </div>
