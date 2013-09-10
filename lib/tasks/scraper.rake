@@ -42,7 +42,7 @@ class TeamScraper
       t.games_drawn=draw_array[x+1]
       t.goals_for=goals_for[x+1]
       t.goals_against=goals_away[x+1]
-      t.save!
+      t.save
     end
   end
 end
@@ -50,20 +50,22 @@ end
 class NewsScraper
 TEAM_NEWS_URL="http://www.bbc.co.uk/sport/football/teams/"
 
-  def self.scrape_team_news(teamname)
-    page = Nokogiri::HTML(RestClient.get(TEAM_NEWS_URL+teamname.downcase))
+  def self.scrape_team_news(team)
+    team_url=team.name.downcase.gsub(" ","-")
+    page = Nokogiri::HTML(RestClient.get(TEAM_NEWS_URL+team_url))
     headlines = page.css("#more-headlines ul li a")
-    puts "Current team is #{teamname}"
     headlines.each do |headline|
-    puts headline.text
-    puts headline.attribute('href').to_s
+      news = News.new(:team_id => team.id)
+      news.headline = headline.text
+      news.url = headline.attribute("href").to_s
+      news.save
     end
   end
 
   def self.scrape_news
     @teams=Team.all
     @teams.each do |team|
-      scrape_team_news(team.name.downcase.gsub(" ","-"))
+      scrape_team_news(team)
     end
   end
 
