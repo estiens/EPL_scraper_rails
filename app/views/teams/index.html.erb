@@ -1,0 +1,27 @@
+
+    <% @teams.sort_by! {|team| [-team.points, -team.goal_difference, -team.goals_for]} %>
+    <div id="teamcontainer">
+        <ol class="teams">
+        <% @teams.each do |team| %>
+          <li>
+            <div class="teamrecord"><%=team.games_won%> W : <%=team.games_drawn%> D : <%=team.games_lost%> L  </div>
+            <% imgpath = "#{team.name.downcase.gsub(" ","-")}.png" %>
+            <%= image_tag imgpath, :height => '150' %></a>
+            <div class="teamname"><%= team.name %></div>
+            <div class="teampoints"><%= team.points %></div>
+            </li>
+        <% end %>
+        </ol>
+    </div>
+        
+    <br style="clear:both" />
+        
+        
+    <footer>
+        <p class="footerinfo">built with <a href="http://www.ruby-lang.org">Ruby</a> at <a href="http://www.bitmakerlabs.com">Bitmaker Labs</a></p>
+    </footer>
+      
+</body>
+</html>
+
+   

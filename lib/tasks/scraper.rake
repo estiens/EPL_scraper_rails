@@ -3,10 +3,15 @@ require 'nokogiri'
 
 
 
+
 namespace :data do
   desc "Scrape Teams to Database"
   task :scrape_teams => :environment do
     TeamScraper.scrape_teams
+  end
+  desc "Scrape News to Database"
+  task :scrape_news => :environment do
+    NewsScraper.scrape_news
   end
 end
 
@@ -25,9 +30,12 @@ class TeamScraper
     goals_away = page.css(".col-ga").map(&:text)
 
     #creating teams
+    Team.delete_all
+
     (0..19).each do |x|
+
       t=Team.create
-      debugger
+      # debugger
       t.name=team_array[x]
       t.games_won=win_array[x+1]
       t.games_lost=loss_array[x+1]
@@ -37,9 +45,35 @@ class TeamScraper
       t.save!
     end
   end
+end
+
+class NewsScraper
+TEAM_NEWS_URL="http://www.bbc.co.uk/sport/football/teams/"
+
+  def self.scrape_team_news(teamname)
+    page = Nokogiri::HTML(RestClient.get(TEAM_NEWS_URL+teamname.downcase))
+    headlines = page.css("#more-headlines ul li a")
+    puts "Current team is #{teamname}"
+    headlines.each do |headline|
+    puts headline.text
+    puts headline.attribute('href').to_s
+    end
+  end
+
+  def self.scrape_news
+    @teams=Team.all
+    @teams.each do |team|
+      scrape_team_news(team.name.downcase.gsub(" ","-"))
+    end
   end
 
 end
+  
+
+
+
+
+
 
 
 
