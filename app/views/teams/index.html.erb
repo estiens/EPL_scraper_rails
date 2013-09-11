@@ -6,8 +6,8 @@
           <%=link_to(team) do %>
             <li>
             <div class="teamrecord"><%=team.games_won%> - <%=team.games_drawn%> - <%=team.games_lost%>  </div>
-            <% imgpath = "#{team.name.downcase.gsub(" ","-")}.png" %>
-            <%= image_tag imgpath, :height => '150' %></a>
+         <!--    <% imgpath = "#{team.name.downcase.gsub(" ","-")}.png" %> -->
+            <%= image_tag image_path(team.name.downcase.gsub(" ","-")+".png"), :height => '150' %></a>
             <div class="teamname"><%= team.name %></div>
             <div class="teampoints"><%= team.points %></div>
             </li>

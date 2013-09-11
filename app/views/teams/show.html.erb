@@ -1,8 +1,8 @@
 <div id="container">
     <div id="teampicture">
-        <a href="<%= root_path %>">
-        <% imgpath = "#{@team.name.downcase.gsub(" ","-")}.png" %>
-        <%= image_tag imgpath, :height => '150' %></a>
+        <%= link_to(root_path) do %>
+            <%= image_tag image_path(@team.name.downcase.gsub(" ","-")+".png"), :height => '150' %>
+        <% end %>
     </div>
     <div id="results_info">
         
