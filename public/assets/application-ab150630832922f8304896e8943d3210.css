@@ -1,0 +1,250 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/*imports*/
+/*fonts*/
+/*colors*/
+/*mixins*/
+.clear {
+  clear: both; }
+
+/*some defaults*/
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  font-size: 42px;
+  font-weight: bold; }
+
+h2 {
+  font-size: 32px;
+  font-weight: bold; }
+
+h3 {
+  font-size: 22px;
+  font-weight: bold; }
+
+h4 {
+  font-size: 16px;
+  font-weight: bold; }
+
+ul {
+  list-style-type: none; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  -webkit-opacity: 0.9;
+  -moz-opacity: 0.9;
+  opacity: 0.9; }
+
+/*our LESS*/
+body {
+  background: #424439;
+  font-family: "Open Sans"; }
+
+body a {
+  color: black; }
+
+footer {
+  float: right;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: .7em;
+  font-family: "happy monkey"; }
+
+footer a {
+  text-decoration: none;
+  color: grey; }
+
+.teamrecord {
+  color: white;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  font-family: "Montserrat"; }
+
+.teampoints {
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  font-size: 6em;
+  display: inline-block;
+  margin-top: -200px;
+  font-weight: bold;
+  color: black;
+  color: rgba(255, 255, 255, 0.8); }
+
+.teampoints:hover {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1; }
+
+#teamcontainer {
+  width: 100%;
+  margin: 25px auto; }
+
+.teams {
+  list-style-type: none;
+  font-family: "happy monkey"; }
+
+.teams li {
+  width: 200px;
+  padding: 25px;
+  float: left;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7); }
+
+.teams > li:nth-of-type(1):hover {
+  background-color: rgba(0, 100, 20, 0.5); }
+
+.teams > li:nth-of-type(2):hover {
+  background-color: rgba(0, 100, 20, 0.5); }
+
+.teams > li:nth-of-type(3):hover {
+  background-color: rgba(0, 100, 20, 0.5); }
+
+.teams > li:nth-of-type(4):hover {
+  background-color: rgba(0, 100, 20, 0.5); }
+
+.teams > li:nth-of-type(5):hover {
+  background-color: rgba(0, 100, 100, 0.3); }
+
+.teams > li:nth-of-type(18):hover {
+  background-color: rgba(100, 0, 0, 0.3); }
+
+.teams > li:nth-of-type(19):hover {
+  background-color: rgba(100, 0, 0, 0.3); }
+
+.teams > li:nth-of-type(20):hover {
+  background-color: rgba(100, 0, 0, 0.3); }
+
+.teams li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0px; }
+
+.teams li.champions:hover {
+  background: rgba(0, 100, 20, 0.5); }
+
+.teams li.relegation:hover {
+  background: rgba(100, 0, 0, 0.3); }
+
+.teams li.europa:hover {
+  background: rgba(0, 100, 100, 0.3); }
+
+.window h1 {
+  padding: 5px 15px;
+  font-family: "montserrat"; }
+
+/* fancy schmancy transitions */
+li {
+  -webkit-transition: background-color 1s linear;
+  -moz-transition: background-color 1s linear;
+  -o-transition: background-color 1s linear;
+  -ms-transition: background-color 1s linear;
+  transition: background-color 1s linear; }
+
+li img,
+.teampoints {
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear; }
+
+.news li a {
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -ms-transition: all .1s linear;
+  transition: all .1s linear; }
+
+/* styles for news page */
+#container {
+  width: 100%;
+  margin: auto auto; }
+
+#teampicture {
+  text-align: center;
+  padding: 25px;
+  width: 150px; }
+
+#bbcnewscontainer {
+  background-color: #ff35a5;
+  width: 45%;
+  margin-top: 3em;
+  padding: 1em;
+  min-height: 550px;
+  float: left;
+  margin-left: 2%; }
+
+#othernewscontainer {
+  background-color: #3583ff;
+  width: 45%;
+  margin-top: 3em;
+  padding: 1em;
+  min-height: 550px;
+  float: left; }
+
+.news li {
+  list-style: none;
+  padding: 5px;
+  width: 100%;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
+.news li a:hover {
+  color: white;
+  -webkit-opacity: .8;
+  -moz-opacity: .8;
+  opacity: .8; }
+
+#source_byline {
+  text-align: center;
+  position: bottom; }
+
+#infobox {
+  margin-left: 13em;
+  margin-top: -10em;
+  float: right; }
+
+#lastmatch {
+  padding: 10px;
+  width: 300px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 80px;
+  text-align: center; }
+
+#nextmatch {
+  padding: 10px;
+  width: 300px;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 80px;
+  text-align: center; }
+
+#resultsinfo {
+  padding: 10px;
+  padding-top: 30px;
+  width: 300px;
+  float: left;
+  margin-right: 0px;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 60px;
+  text-align: center; }
