@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130910185757) do
+ActiveRecord::Schema.define(version: 20130911165036) do
+
+  create_table "fixtures", force: true do |t|
+    t.string   "next_match_team"
+    t.string   "next_match_time"
+    t.string   "last_match_team"
+    t.string   "last_match_result"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news", force: true do |t|
     t.string   "headline"

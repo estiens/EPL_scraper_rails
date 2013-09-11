@@ -1,75 +1,69 @@
-// Place all the styles related to the Teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
-
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
 /*imports*/
 /*fonts*/
 /*colors*/
 /*mixins*/
 .clear {
-  clear: both;
-}
+  clear: both; }
+
 /*some defaults*/
 html,
 body {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 h1 {
   font-size: 42px;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 h2 {
   font-size: 32px;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 h3 {
   font-size: 22px;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 h4 {
   font-size: 16px;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 ul {
-  list-style-type: none;
-}
+  list-style-type: none; }
+
 a {
-  text-decoration: none;
-}
+  text-decoration: none; }
+
 a:hover {
   -webkit-opacity: 0.9;
   -moz-opacity: 0.9;
-  opacity: 0.9;
-}
+  opacity: 0.9; }
+
 /*our LESS*/
 body {
   font-family: "@sans";
-  background: #424439;
-}
-body a {
-  color: black;
-}
+  background: #424439; }
 
+body a {
+  color: black; }
 
 footer {
   float: right;
   padding: 10px;
   text-transform: uppercase;
   font-size: .7em;
-  font-family: "happy monkey";
-}
+  font-family: "happy monkey"; }
+
 footer a {
   text-decoration: none;
-  color: grey;
-}
+  color: grey; }
+
 .teampointsgraph {
   height: 25px;
   display: none;
-  float: left;
-}
+  float: left; }
+
 .teampoints {
   -webkit-opacity: 0;
   -moz-opacity: 0;
@@ -77,122 +71,130 @@ footer a {
   font-size: 6em;
   display: inline-block;
   margin-top: -200px;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
 .teampoints:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
-  opacity: 1;
-}
+  opacity: 1; }
+
 #teamcontainer {
   width: 100%;
-  margin: 25px auto;
-}
+  margin: 25px auto; }
+
 .teams {
   list-style-type: none;
-  font-family: "happy monkey";
-}
+  font-family: "happy monkey"; }
+
 .teams li {
   width: 200px;
   padding: 25px;
   float: left;
   text-align: center;
-  color: rgba(255, 255, 255, 0.7);
-}
+  color: rgba(255, 255, 255, 0.7); }
 
-$relegation_color:red;
-$champions_color:green;
-$europa_color:lightgreen;
+.teams > li:nth-of-type(1):hover {
+  background-color: green; }
 
-.teams > li:nth-of-type(1):hover {background-color:$champions_color}
-.teams > li:nth-of-type(2):hover {background-color:$champions_color}
-.teams > li:nth-of-type(3):hover {background-color: $champions_color }
-.teams > li:nth-of-type(4):hover {background-color: $champions_color}
-.teams > li:nth-of-type(5):hover {background-color:$europa_color}
-.teams > li:nth-of-type(18):hover {background-color:$relegation_color}
-.teams > li:nth-of-type(19):hover {background-color:$relegation_color}
-.teams > li:nth-of-type(20):hover {background-color:$relegation_color}
+.teams > li:nth-of-type(2):hover {
+  background-color: green; }
+
+.teams > li:nth-of-type(3):hover {
+  background-color: green; }
+
+.teams > li:nth-of-type(4):hover {
+  background-color: green; }
+
+.teams > li:nth-of-type(5):hover {
+  background-color: lightgreen; }
+
+.teams > li:nth-of-type(18):hover {
+  background-color: red; }
+
+.teams > li:nth-of-type(19):hover {
+  background-color: red; }
+
+.teams > li:nth-of-type(20):hover {
+  background-color: red; }
 
 .teams li:hover {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 0px;
-}
+  border-radius: 0px; }
+
 .teams li.champions:hover {
-  background: rgba(0, 100, 20, 0.5);
-}
+  background: rgba(0, 100, 20, 0.5); }
+
 .teams li.relegation:hover {
-  background: rgba(100, 0, 0, 0.3);
-}
+  background: rgba(100, 0, 0, 0.3); }
+
 .teams li.europa:hover {
-  background: rgba(0, 100, 100, 0.3);
-}
+  background: rgba(0, 100, 100, 0.3); }
+
 .window h1 {
   padding: 5px 15px;
-  font-family: "montserrat";
-}
+  font-family: "montserrat"; }
+
 .newsheadlines li {
   padding: 5px;
-  font-family: Helvetica, Arial, sans-serif;
-}
+  font-family: Helvetica, Arial, sans-serif; }
+
 /* fancy schmancy transitions */
 li {
   -webkit-transition: background-color 1s linear;
   -moz-transition: background-color 1s linear;
   -o-transition: background-color 1s linear;
   -ms-transition: background-color 1s linear;
-  transition: background-color 1s linear;
-}
+  transition: background-color 1s linear; }
+
 li img,
 .teampoints {
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -o-transition: all 1s linear;
   -ms-transition: all 1s linear;
-  transition: all 1s linear;
-}
+  transition: all 1s linear; }
+
 /* styles for news page */
 #container {
   width: 100%;
-  margin: auto auto;
-}
+  margin: auto auto; }
+
 #teampicture {
   text-align: center;
   padding: 25px;
-  width:150px;
-}
+  width: 150px; }
+
 #bbcnewscontainer {
   background-color: #ff35a5;
   width: 25%;
   margin-top: 3em;
   padding: 2em;
   min-height: 550px;
-  float: left;
-}
+  float: left; }
+
 #othernewscontainer {
   background-color: #3583ff;
   width: 25%;
   margin-top: 3em;
   padding: 2em;
   min-height: 550px;
-  float: left;
-}
+  float: left; }
+
 #thirdnewscontainer {
   background-color: #a5ff35;
   width: 25%;
   margin-top: 3em;
   padding: 1em;
   min-height: 550px;
-  float: left;
-}
+  float: left; }
+
 .news li {
   list-style: none;
-  padding:5px;
-  width:100%;
-}
+  padding: 5px;
+  width: 100%; }
 
 .news li:hover {
-  .opacity:.8;
-}
+  .opacity: .8; }
+
 #source_byline {
-  text-align: center;
-}
+  text-align: center; }

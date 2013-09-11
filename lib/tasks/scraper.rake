@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'nokogiri'
+require 'open-uri'
 
 
 
@@ -12,6 +13,10 @@ namespace :data do
   desc "Scrape News to Database"
   task :scrape_news => :environment do
     NewsScraper.scrape_news
+  end
+  desc "Scrape Fixtures to Database"
+  task :scrape_fixtures => :environment do
+    NewsScraper.scrape_fixtures
   end
 end
 
@@ -48,35 +53,62 @@ class TeamScraper
 end
 
 class NewsScraper
-TEAM_NEWS_URL="http://www.bbc.co.uk/sport/football/teams/"
+BBC_NEWS_URL="http://www.bbc.co.uk/sport/football/teams/"
+TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
 
-  def self.scrape_team_news(team)
+  def self.scrape_bbc_news(team)
     team_url=team.name.downcase.gsub(" ","-")
-    page = Nokogiri::HTML(RestClient.get(TEAM_NEWS_URL+team_url))
+    page = Nokogiri::HTML(RestClient.get(BBC_NEWS_URL+team_url))
     headlines = page.css("#more-headlines ul li a")
     headlines.each do |headline|
       news = News.new(:team_id => team.id)
       news.headline = headline.text
       news.url = headline.attribute("href").to_s
+      news.source = "BBC NEWS"
       news.save
     end
   end
 
-  def self.scrape_news
-    @teams=Team.all
-    @teams.each do |team|
-      scrape_team_news(team)
+  def self.scrape_other_news(team)
+    team_url=team.name.downcase.gsub(" ","-")
+    doc = Nokogiri::XML(open(TEAM_INFO_NEWS_URL+team_url+"/rss"))
+    items = doc.xpath("//item")
+    items.each do |item|
+      news = News.new(:team_id => team.id)
+      news.headline = item.at_xpath("title").text
+      news.url = item.at_xpath("link").text
+      news.source = "TEAM INFO"
+      news.save
     end
   end
 
+  def self.scrape_team_fixtures(team)
+    team_url=team.name.downcase.gsub(" ","-")
+    page = Nokogiri::HTML(RestClient.get(BBC_NEWS_URL+team_url))
+    f=Fixture.new(:team_id => team.id)
+    f.last_match_team=page.css("#last-match a span").text
+    f.last_match_result=page.css("#last-match span.match-outcome").text.strip+" "+page.css("#last-match span.match-score").text.strip.gsub("\n","").gsub("                         "," ").gsub("    ",  " ")
+    f.next_match_team=page.css("#next-match a span").text
+    f.next_match_time=page.css("#next-match span.microdata-hide").text.strip.to_s.gsub("T00:00:00+01:00","")
+    f.save
+  end
+
+  def self.scrape_news
+    @teams=Team.all
+    News.delete_all
+    @teams.each do |team|
+      scrape_bbc_news(team)
+      scrape_other_news(team)
+    end
+  end
+
+  def self.scrape_fixtures
+    @teams=Team.all
+    Fixture.delete_all
+    @teams.each do |team|
+      scrape_team_fixtures(team)
+    end
+  end
+
+
 end
-  
-
-
-
-
-
-
-
-
-
