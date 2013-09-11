@@ -53,7 +53,8 @@
         
         
     <footer>
-        <p class="footerinfo">built with <a href="http://www.ruby-lang.org">Ruby</a> at <a href="http://www.bitmakerlabs.com">Bitmaker Labs</a>.<br /></p>
+        <p class="footerinfo">built with <a href="http://www.ruby-lang.org">Ruby</a> at <a href="http://www.bitmakerlabs.com">Bitmaker Labs</a>.<br />     <% news = @team.news.first %>
+        News last updated at: <%= news.updated_at.to_s %></p>
     </footer>
 
       <!--  t.string :next_match_team

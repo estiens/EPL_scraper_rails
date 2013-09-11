@@ -60,6 +60,12 @@ footer a {
   text-decoration: none;
   color: grey; }
 
+.teamrecord {
+  color: white;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  font-family: "Montserrat"; }
+
 .teampoints {
   -webkit-opacity: 0;
   -moz-opacity: 0;
@@ -67,7 +73,9 @@ footer a {
   font-size: 6em;
   display: inline-block;
   margin-top: -200px;
-  font-weight: bold; }
+  font-weight: bold;
+  color: black;
+  color: rgba(255, 255, 255, 0.8); }
 
 .teampoints:hover {
   -webkit-opacity: 1;
@@ -146,6 +154,13 @@ li img,
   -ms-transition: all 1s linear;
   transition: all 1s linear; }
 
+.news li a {
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -o-transition: all .1s linear;
+  -ms-transition: all .1s linear;
+  transition: all .1s linear; }
+
 /* styles for news page */
 #container {
   width: 100%;
@@ -179,23 +194,24 @@ li img,
   width: 100%;
   font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
-.news li:hover {
-  .opacity: .8; }
+.news li a:hover {
+  color: white;
+  -webkit-opacity: .8;
+  -moz-opacity: .8;
+  opacity: .8; }
 
 #source_byline {
   text-align: center;
   position: bottom; }
 
 #infobox {
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 85%;
   margin-left: 13em;
   margin-top: -10em;
-  margin-bottom: 8em; }
+  float: right; }
 
 #lastmatch {
   padding: 10px;
-  width: 30%;
+  width: 300px;
   float: left;
   background-color: rgba(255, 255, 255, 0.8);
   min-height: 80px;
@@ -203,7 +219,7 @@ li img,
 
 #nextmatch {
   padding: 10px;
-  width: 30%;
+  width: 300px;
   float: left;
   background-color: rgba(255, 255, 255, 0.7);
   min-height: 80px;
@@ -212,7 +228,7 @@ li img,
 #resultsinfo {
   padding: 10px;
   padding-top: 30px;
-  width: 30%;
+  width: 300px;
   float: left;
   margin-right: 0px;
   background-color: rgba(255, 255, 255, 0.9);
