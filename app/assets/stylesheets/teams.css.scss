@@ -4,6 +4,8 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 /*imports*/
 /*fonts*/
 /*colors*/
@@ -46,8 +48,8 @@ a:hover {
 }
 /*our LESS*/
 body {
-  font-family: "@sans";
   background: #424439;
+  font-family: "Open Sans"
 }
 body a {
   color: black;
@@ -65,11 +67,7 @@ footer a {
   text-decoration: none;
   color: grey;
 }
-.teampointsgraph {
-  height: 25px;
-  display: none;
-  float: left;
-}
+
 .teampoints {
   -webkit-opacity: 0;
   -moz-opacity: 0;
@@ -100,9 +98,9 @@ footer a {
   color: rgba(255, 255, 255, 0.7);
 }
 
-$relegation_color:red;
-$champions_color:green;
-$europa_color:lightgreen;
+$relegation_color:rgba(100, 0, 0, 0.3);
+$champions_color:rgba(0, 100, 20, 0.5);
+$europa_color:rgba(0, 100, 100, 0.3);
 
 .teams > li:nth-of-type(1):hover {background-color:$champions_color}
 .teams > li:nth-of-type(2):hover {background-color:$champions_color}
@@ -130,10 +128,7 @@ $europa_color:lightgreen;
   padding: 5px 15px;
   font-family: "montserrat";
 }
-.newsheadlines li {
-  padding: 5px;
-  font-family: Helvetica, Arial, sans-serif;
-}
+
 /* fancy schmancy transitions */
 li {
   -webkit-transition: background-color 1s linear;
@@ -162,32 +157,27 @@ li img,
 }
 #bbcnewscontainer {
   background-color: #ff35a5;
-  width: 25%;
+  width: 45%;
   margin-top: 3em;
-  padding: 2em;
+  padding: 1em;
   min-height: 550px;
   float: left;
+  margin-left:2%;
 }
 #othernewscontainer {
   background-color: #3583ff;
-  width: 25%;
-  margin-top: 3em;
-  padding: 2em;
-  min-height: 550px;
-  float: left;
-}
-#thirdnewscontainer {
-  background-color: #a5ff35;
-  width: 25%;
+  width: 45%;
   margin-top: 3em;
   padding: 1em;
   min-height: 550px;
   float: left;
 }
+
 .news li {
   list-style: none;
   padding:5px;
   width:100%;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .news li:hover {
@@ -195,4 +185,11 @@ li img,
 }
 #source_byline {
   text-align: center;
+  position: bottom;
 }
+
+#infobox {background-color: rgba(255,255,255,.5);
+width:85%;margin-left:13em;margin-top:-10em;margin-bottom:8em;}
+#lastmatch{padding:10px;width:30%;float:left;background-color:rgba(255,255,255,.8);min-height:80px;text-align:center;}
+#nextmatch{padding:10px;width:30%;float:left;background-color:rgba(255,255,255,.7);min-height:80px;text-align:center;}
+#resultsinfo {padding:10px;padding-top:30px;width:30%;float:left;margin-right:0px;background-color:rgba(255,255,255,.9);min-height:60px;text-align:center;}

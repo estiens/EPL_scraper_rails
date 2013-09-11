@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 @import url(http://fonts.googleapis.com/css?family=Happy+Monkey);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 /*imports*/
 /*fonts*/
 /*colors*/
@@ -42,8 +43,8 @@ a:hover {
 
 /*our LESS*/
 body {
-  font-family: "@sans";
-  background: #424439; }
+  background: #424439;
+  font-family: "Open Sans"; }
 
 body a {
   color: black; }
@@ -58,11 +59,6 @@ footer {
 footer a {
   text-decoration: none;
   color: grey; }
-
-.teampointsgraph {
-  height: 25px;
-  display: none;
-  float: left; }
 
 .teampoints {
   -webkit-opacity: 0;
@@ -94,28 +90,28 @@ footer a {
   color: rgba(255, 255, 255, 0.7); }
 
 .teams > li:nth-of-type(1):hover {
-  background-color: green; }
+  background-color: rgba(0, 100, 20, 0.5); }
 
 .teams > li:nth-of-type(2):hover {
-  background-color: green; }
+  background-color: rgba(0, 100, 20, 0.5); }
 
 .teams > li:nth-of-type(3):hover {
-  background-color: green; }
+  background-color: rgba(0, 100, 20, 0.5); }
 
 .teams > li:nth-of-type(4):hover {
-  background-color: green; }
+  background-color: rgba(0, 100, 20, 0.5); }
 
 .teams > li:nth-of-type(5):hover {
-  background-color: lightgreen; }
+  background-color: rgba(0, 100, 100, 0.3); }
 
 .teams > li:nth-of-type(18):hover {
-  background-color: red; }
+  background-color: rgba(100, 0, 0, 0.3); }
 
 .teams > li:nth-of-type(19):hover {
-  background-color: red; }
+  background-color: rgba(100, 0, 0, 0.3); }
 
 .teams > li:nth-of-type(20):hover {
-  background-color: red; }
+  background-color: rgba(100, 0, 0, 0.3); }
 
 .teams li:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -133,10 +129,6 @@ footer a {
 .window h1 {
   padding: 5px 15px;
   font-family: "montserrat"; }
-
-.newsheadlines li {
-  padding: 5px;
-  font-family: Helvetica, Arial, sans-serif; }
 
 /* fancy schmancy transitions */
 li {
@@ -166,23 +158,16 @@ li img,
 
 #bbcnewscontainer {
   background-color: #ff35a5;
-  width: 25%;
+  width: 45%;
   margin-top: 3em;
-  padding: 2em;
+  padding: 1em;
   min-height: 550px;
-  float: left; }
+  float: left;
+  margin-left: 2%; }
 
 #othernewscontainer {
   background-color: #3583ff;
-  width: 25%;
-  margin-top: 3em;
-  padding: 2em;
-  min-height: 550px;
-  float: left; }
-
-#thirdnewscontainer {
-  background-color: #a5ff35;
-  width: 25%;
+  width: 45%;
   margin-top: 3em;
   padding: 1em;
   min-height: 550px;
@@ -191,10 +176,45 @@ li img,
 .news li {
   list-style: none;
   padding: 5px;
-  width: 100%; }
+  width: 100%;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
 .news li:hover {
   .opacity: .8; }
 
 #source_byline {
+  text-align: center;
+  position: bottom; }
+
+#infobox {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 85%;
+  margin-left: 13em;
+  margin-top: -10em;
+  margin-bottom: 8em; }
+
+#lastmatch {
+  padding: 10px;
+  width: 30%;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 80px;
+  text-align: center; }
+
+#nextmatch {
+  padding: 10px;
+  width: 30%;
+  float: left;
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 80px;
+  text-align: center; }
+
+#resultsinfo {
+  padding: 10px;
+  padding-top: 30px;
+  width: 30%;
+  float: left;
+  margin-right: 0px;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 60px;
   text-align: center; }

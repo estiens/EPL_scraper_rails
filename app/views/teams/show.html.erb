@@ -4,19 +4,27 @@
         <% imgpath = "#{@team.name.downcase.gsub(" ","-")}.png" %>
         <%= image_tag imgpath, :height => '150' %></a>
     </div>
-    <div id="fixtures_info">
+    <div id="results_info">
+        
+    </div>
+    <div id="infobox">
+        <div id="resultsinfo">
+            <%=@team.games_won%> wins | <%=@team.games_drawn%> draws | <%=@team.games_lost%> losses<br />
+        <%= @team.goals_for %> goals for | <%= @team.goals_against %> goals against | <%= @team.points %> points 
+        </div>
         <div id="lastmatch">
-            <p>Last Match:
-                <%= @team.fixture.last_match_team %>
+            <p>Last Match vs
+                <%= @team.fixture.last_match_team %> <br />
                 <%= @team.fixture.last_match_result %>
             </p>
         </div>
         <div id="nextmatch">
-            <p>Next Match:
-            <%= @team.fixture.next_match_team %>
-            <%= @team.fixture.next_match_time %>
+            <p>Next Match vs
+            <%= @team.fixture.next_match_team %> <br />
+            <%= @team.fixture.next_match_time.gsub("2013-","") %>-2013
             </p>
         </div>
+    </div>
     <div id="bbcnewscontainer">
         <ul class="news">
             <% @team.news.each do |news| %>
