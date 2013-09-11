@@ -6,18 +6,20 @@ require 'open-uri'
 
 
 namespace :data do
-  desc "Scrape Teams to Database"
+  desc "Scrape Teams and News to Database"
   task :scrape_teams => :environment do
     TeamScraper.scrape_teams
-  end
-  desc "Scrape News to Database"
-  task :scrape_news => :environment do
     NewsScraper.scrape_news
-  end
-  desc "Scrape Fixtures to Database"
-  task :scrape_fixtures => :environment do
     NewsScraper.scrape_fixtures
   end
+  # desc "Scrape News to Database"
+  # task :scrape_news => :environment do
+  #   NewsScraper.scrape_news
+  # end
+  # desc "Scrape Fixtures to Database"
+  # task :scrape_fixtures => :environment do
+  #   NewsScraper.scrape_fixtures
+  # end
 end
 
 class TeamScraper
