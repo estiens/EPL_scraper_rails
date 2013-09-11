@@ -37,11 +37,9 @@
     </div>
     <div id ="othernewscontainer">
           <ul class="news">
-            <% @team.news.where("source == 'TEAM INFO'").limit(10).each do |news| %>
+            <% @team.news.where("source = 'TEAM INFO'").limit(12).each do |news| %>
             <li><a href="<%= news.url %>"><%= news.headline %></a></li>
             <% end %>
-            
-            
         </ul>
         
         <h5 id="source_byline">Source:  TEAM Feeds</h5>
