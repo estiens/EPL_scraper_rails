@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
-  has_many :news
-  has_one :fixture
+  has_many :news, :dependent => :destroy
+  has_one :fixture, :dependent => :destroy
   
   def points
     points=(3*games_won)+ games_drawn

@@ -9,17 +9,15 @@ namespace :data do
   desc "Scrape Teams and News to Database"
   task :scrape_teams => :environment do
     TeamScraper.scrape_teams
+  end
+  desc "Scrape News to Database"
+  task :scrape_news => :environment do
     NewsScraper.scrape_news
+  end
+  desc "Scrape Fixtures to Database"
+  task :scrape_fixtures => :environment do
     NewsScraper.scrape_fixtures
   end
-  # desc "Scrape News to Database"
-  # task :scrape_news => :environment do
-  #   NewsScraper.scrape_news
-  # end
-  # desc "Scrape Fixtures to Database"
-  # task :scrape_fixtures => :environment do
-  #   NewsScraper.scrape_fixtures
-  # end
 end
 
 class TeamScraper
@@ -37,13 +35,13 @@ class TeamScraper
     goals_away = page.css(".col-ga").map(&:text)
 
     #creating teams
-    Team.delete_all
+    #Team.delete_all
 
     (0..19).each do |x|
 
-      t=Team.create
+      t=Team.find_or_create_by_name(team_array[x])
       # debugger
-      t.name=team_array[x]
+      # t.name=team_array[x]
       t.games_won=win_array[x+1]
       t.games_lost=loss_array[x+1]
       t.games_drawn=draw_array[x+1]
@@ -75,7 +73,6 @@ TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
 
   def self.scrape_other_news(team)
     puts "Scraping TEAM INFO"
-    debugger
     team_url=team.name.downcase.gsub(" ","-")
     doc = Nokogiri::XML(open(TEAM_INFO_NEWS_URL+team_url+"/rss"))
     items = doc.xpath("//item")
