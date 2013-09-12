@@ -1,28 +1,11 @@
-== README
+== EPL Scraper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app scrapes data from various locations to display the current EPL table and news and fixture information for each team. Originally, built as a console scraper, now turned into a full-fledge rails app (my first, be gentle!)
 
-Things you may want to cover:
+Features: 
 
-* Ruby version
+* Orders and styles teams based on correct criteria (points, goals for, etc)
+* Uses rake tasks to background scrape to serve pages quickly while keeping data updated
+* CSS 3 prettiness!
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Currently living at [https://epltracker.herokuapp.com/](https://epltracker.herokuapp.com/)
