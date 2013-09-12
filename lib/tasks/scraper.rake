@@ -47,6 +47,7 @@ class TeamScraper
       t.games_drawn=draw_array[x+1]
       t.goals_for=goals_for[x+1]
       t.goals_against=goals_away[x+1]
+      puts "#{t.name} updated"
       t.save
     end
   end
@@ -57,7 +58,7 @@ BBC_NEWS_URL="http://www.bbc.co.uk/sport/football/teams/"
 TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
 
   def self.scrape_bbc_news(team)
-    puts "Scraping BBC "
+    print "\nScraping BBC for #{team.name}"
     team_url=team.name.downcase.gsub(" ","-")
     page = Nokogiri::HTML(RestClient.get(BBC_NEWS_URL+team_url))
     headlines = page.css("#more-headlines ul li a")
@@ -67,12 +68,12 @@ TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
       news.url = headline.attribute("href").to_s
       news.source = "BBC NEWS"
       news.save
-      puts "."
+      print "."
     end
   end
 
   def self.scrape_other_news(team)
-    puts "Scraping TEAM INFO"
+    print "\nScraping Team Feeds for #{team.name}"
     team_url=team.name.downcase.gsub(" ","-")
     doc = Nokogiri::XML(open(TEAM_INFO_NEWS_URL+team_url+"/rss"))
     items = doc.xpath("//item")
@@ -82,12 +83,12 @@ TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
       news.url = item.at_xpath("link").text
       news.source = "TEAM INFO"
       news.save
-      puts "."
+      print "."
     end
   end
 
   def self.scrape_team_fixtures(team)
-    puts "scraping team fixtures"
+    puts "scraping team fixtures for #{team.name}"
     team_url=team.name.downcase.gsub(" ","-")
     page = Nokogiri::HTML(RestClient.get(BBC_NEWS_URL+team_url))
     f=Fixture.new(:team_id => team.id)
@@ -96,7 +97,6 @@ TEAM_INFO_NEWS_URL="http://www.teamtalk.com/"
     f.next_match_team=page.css("#next-match a span").text
     f.next_match_time=page.css("#next-match span.microdata-hide").text.strip.to_s.gsub("T00:00:00+01:00","")
     f.save
-    puts "."
   end
 
   def self.scrape_news
